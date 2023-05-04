@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SchematronSchxsltSaxonCSValidator": {
+      "commandName": "Project",
+      "commandLineArgs": "price.sch books.xml"
+    }
+  }
+}

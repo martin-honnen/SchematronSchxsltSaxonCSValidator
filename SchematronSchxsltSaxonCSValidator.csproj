@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="schxslt195\compile\api-2.0.xsl" />
+    <None Remove="schxslt195\compile\compile-2.0.xsl" />
+    <None Remove="schxslt195\compile\functions.xsl" />
+    <None Remove="schxslt195\compile\templates.xsl" />
+    <None Remove="schxslt195\util\normalize-svrl.xsl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="schxslt195\compile-for-svrl.xsl" />
+    <EmbeddedResource Include="schxslt195\compile\api-2.0.xsl" />
+    <EmbeddedResource Include="schxslt195\compile\compile-2.0.xsl" />
+    <EmbeddedResource Include="schxslt195\compile\functions.xsl" />
+    <EmbeddedResource Include="schxslt195\compile\templates.xsl" />
+    <EmbeddedResource Include="schxslt195\expand.xsl" />
+    <EmbeddedResource Include="schxslt195\include.xsl" />
+    <EmbeddedResource Include="schxslt195\pipeline-for-svrl.xsl" />
+    <EmbeddedResource Include="schxslt195\pipeline.xsl" />
+    <EmbeddedResource Include="schxslt195\svrl.xsl" />
+    <EmbeddedResource Include="schxslt195\util\normalize-svrl.xsl" />
+    <EmbeddedResource Include="schxslt195\version.xsl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SaxonCS" Version="12.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="books.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="price.sch">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
