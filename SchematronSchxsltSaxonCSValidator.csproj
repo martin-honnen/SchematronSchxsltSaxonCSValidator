@@ -31,11 +31,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SaxonCS" Version="12.2.0" />
+    <PackageReference Include="SaxonCS" Version="12.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="books.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="price-with-location-function.sch">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="price.sch">
