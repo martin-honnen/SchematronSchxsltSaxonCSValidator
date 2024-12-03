@@ -3,6 +3,10 @@
     "SchematronSchxsltSaxonCSValidator": {
       "commandName": "Project",
       "commandLineArgs": "price.sch books.xml"
+    },
+    "SchematronSchxsltSaxonCSLocationFunction": {
+      "commandName": "Project",
+      "commandLineArgs": "price-with-location-function.sch books.xml"
     }
   }
 }
