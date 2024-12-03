@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Xml;
 
-Console.WriteLine($"Schematron Schxslt Validator using Schxslt 1.9.5 and SaxonCS 12.2 under {Environment.Version} {Environment.OSVersion}");
+Console.WriteLine($"Schematron Schxslt Validator using Schxslt 1.9.5 and SaxonCS 12.3 under {Environment.Version} {Environment.OSVersion}");
 
 if (args.Length != 2)
 {
@@ -45,9 +45,9 @@ var schematronValidator = xsltCompiler2.Compile(compiledSchematron.XdmNode).Load
 var svrlResult = new XdmDestination();
 
 using var instanceStream = File.OpenRead(args[1]);
-schematronValidator.Transform(instanceStream, svrlResult);
+schematronValidator.Transform(instanceStream, new Uri(new FileInfo(args[1]).FullName), svrlResult);
 
-var valid = (processor.NewXPathCompiler().EvaluateSingle("not((/Q{http://purl.oclc.org/dsdl/svrl}schematron-output!(Q{http://purl.oclc.org/dsdl/svrl}failed-assert , Q{http://purl.oclc.org/dsdl/svrl}successful-report)))", svrlResult.XdmNode) as XdmAtomicValue).AsBoolean();
+var valid = (processor.NewXPathCompiler().EvaluateSingle("not((/Q{http://purl.oclc.org/dsdl/svrl}schematron-output!(Q{http://purl.oclc.org/dsdl/svrl}failed-assert)))", svrlResult.XdmNode) as XdmAtomicValue).AsBoolean();
 
 Console.WriteLine($"XML document {args[1]} is {(valid ? "" : "not ")}valid against Schematron schema {args[0]}.");
 
