@@ -7,6 +7,10 @@
     "SchematronSchxsltSaxonCSLocationFunction": {
       "commandName": "Project",
       "commandLineArgs": "price-with-location-function.sch books.xml"
+    },
+    "functionTest1": {
+      "commandName": "Project",
+      "commandLineArgs": "sorted-function-test1.sch sorted-sample-data1.xml"
     }
   }
 }
